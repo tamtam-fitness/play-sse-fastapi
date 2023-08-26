@@ -12,14 +12,10 @@ import requests
 
 
 url = 'http://0.0.0.0:8080/streaming/ask'
-query = {"query": "What is the meaning of life?"}
+query = {"query": "FastAPIは何ですか？"}
 headers = {'Accept': 'text/event-stream'}
-response = requests.post(url, stream=True, headers=headers,json = query)
+response = requests.post(url, stream=True, headers=headers, json=query)
 client = sseclient.SSEClient(response)
 
-
 for event in client.events():
-    print(event.data)
-    print(type(event.data))
-    if event.data != "":
-        print(json.loads(event.data))
+    print(json.loads(event.data))
