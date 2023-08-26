@@ -30,7 +30,7 @@ async def ask_llm_stream(query: str):
         except:
             content = ""
         # dict型で返すことでよしなに変換してくれる
-        yield {"data": json.dumps({"content": content})}
+        yield {"data": content}
     yield {"data": "[DONE]"}
 
 
