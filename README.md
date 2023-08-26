@@ -1,19 +1,15 @@
-# python-template-based-on-docker
+# plat sse-with-fastapi
 
-FYI: [Dockerコンテナ上で動くPythonの開発環境のテンプレートを作ってみた](https://zenn.dev/fitness_densuke/articles/python_template_based_on_docker)
+- `src/stream_client_example.py`
 
-## Prerequisites
+or
 
-- Tool to run Docker like Docker Desktop
-  - I highly recommend to use [OrbStack](https://github.com/orbstack/orbstack)
-
-## Apply template to your project
 ```
-git clone https://github.com/tamtam-fitness/python-template-based-on-docker.git <new-project>
+curl -N -X POST  \
+-H "Content-Type: application/json" \
+-d '{"query":"大谷翔平はどこに所属していますか？"}' \
+http://localhost:8080/streaming/ask
 
-cd <new-project>
-
-rm -rf .git
 ```
 
 ## Run Container
@@ -41,18 +37,5 @@ make lint
 make format
 ```
 
-### Test
-
-If you want to run all tests, you can run the following command:
-```bash 
-make test
-```
-
-If you want to run the specific test, you can run the following command:
-```bash
-make enter_container
-
-poetry shell
-
-poe test tests/{file or directory you want to test}
-```
+## References
+- https://gist.github.com/oneryalcin/2921408da70266aa61f9c40cb2973865
